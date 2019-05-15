@@ -62,3 +62,5 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'stock_quote', '~> 2.0'
 
 gem 'jquery-rails'
+
+gem 'devise', '~> 4.6', '>= 4.6.2'
