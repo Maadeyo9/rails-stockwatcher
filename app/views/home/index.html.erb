@@ -1,2 +1,24 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%= form_tag root_path, :method=> 'POST' do %>
+  <%= text_field_tag 'id', nil, placeholder: "Enter Company Ticker Symbol", size: 50 %>
+  <%= submit_tag "Lookup stock quote"%>
+<% end %>
+
+<br/>
+<% if @stock %>
+    <strong>Company Name: </strong> <%= @stock.company_name %> - <%= @stock.symbol %> <br/>
+    <strong>Company Sector: </strong> <%= @stock.sector %><br/>
+    <strong>Realtime price: </strong> $<%= @stock.iex_realtime_price %><br/>
+    <strong>Previous closing price: </strong> $<%= @stock.previous_close %><br/>
+    <strong>Price change in percentage: </strong> <%= @stock.change_percent %>%<br/>
+    <strong>52-week high point: </strong> $<%= @stock.week52_high %><br/>
+    <strong>52-week low point: </strong> $<%= @stock.week52_low %><br/>
+    <strong>Year to date change: </strong> <%= @stock.ytd_change %>%<br/>
+
+
+<% elsif @nothing %>
+    <%= @nothing %>
+    <% end %>
+
+<% if @error %>
+    <%= @error %>
+<% end %>
