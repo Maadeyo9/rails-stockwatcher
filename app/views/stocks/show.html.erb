@@ -1,0 +1,29 @@
+<% begin %>
+  <% @stock_quote = StockQuote::Stock.quote(@stock.ticker)%>
+<% rescue StandardError %>
+  Hello
+<% end %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong><%= @stock_quote.company_name %> - <%= @stock_quote.symbol %></strong></h3>
+  </div>
+  <div class="panel-body">
+    <h1>$<%= @stock_quote.iex_realtime_price %></h1>
+
+    <strong>Company Sector: </strong> <%= @stock_quote.sector %><br/>
+    <strong>Previous closing price: </strong> $<%= @stock_quote.previous_close %><br/>
+    <strong>Price change in percentage: </strong> <%= @stock_quote.change_percent %>%<br/>
+    <strong>52-week high point: </strong> $<%= @stock_quote.week52_high %><br/>
+    <strong>52-week low point: </strong> $<%= @stock_quote.week52_low %><br/>
+    <strong>Year to date change: </strong> <%= @stock_quote.ytd_change %>%<br/>
+  </div>
+  <div class ="panel-footer"><%= link_to 'Edit', edit_stock_path(@stock) %> |
+    <%= link_to 'Remove', stock_path(@stock), method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to 'Back', stocks_path %>
+  </div>
+</div>
+
+<br/>
+
+

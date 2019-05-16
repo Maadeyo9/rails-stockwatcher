@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     if params[:id] == ""
-      @nothing = "You did not enter a symbol."
+      @nothing = 'You did not enter a correct ticker.'
     elsif
 
       if params[:id]
