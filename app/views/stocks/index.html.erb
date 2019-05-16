@@ -29,7 +29,7 @@
         </tr>
         <% next %>
       <% end %>
-
+      <% if @stock_quote %>
       <tr>
         <td><%= link_to@stock_quote.company_name, stock %></td>
         <td><%= stock.ticker %></td>
@@ -38,6 +38,7 @@
         <td>$<%= @stock_quote.week52_high %></td>
         <td>$<%= @stock_quote.week52_low %></td>
       </tr>
+        <%end %>
       <% end %>
     <% end %>
   </tbody>

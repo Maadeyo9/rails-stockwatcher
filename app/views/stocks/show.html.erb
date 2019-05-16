@@ -3,7 +3,7 @@
 <% rescue StandardError %>
   Hello
 <% end %>
-
+    <% if @stock_quote %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title"><strong><%= @stock_quote.company_name %> - <%= @stock_quote.symbol %></strong></h3>
@@ -26,4 +26,4 @@
 
 <br/>
 
-
+    <% end %>
