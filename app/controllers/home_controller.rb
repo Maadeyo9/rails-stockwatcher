@@ -1,8 +1,10 @@
 class HomeController < ApplicationController
   def index
     if params[:id] == ""
-      @nothing = 'You did not enter a correct ticker.'
+      @nothing = 'You did not enter a ticker.'
     elsif
+      @stock_quote.nil? == true
+      @nothing = 'The stock ticker does not match an existing ticker'
 
       if params[:id]
         begin
